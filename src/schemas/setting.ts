@@ -4,7 +4,6 @@ export const seoConfigSchema = z
   .object({
     title: z.string().max(60).nullable().optional(), // Std. recommended size.
     description: z.string().max(110).nullable().optional(), // Std. recommended size. (To not cutoff in mobile display)
-    keywords: z.string().nullable().optional(),
     twitter: z.string().max(15).nullable().optional(), // Official twitter handle size.
   })
 
@@ -21,9 +20,7 @@ export const organizationConfigSchema = z
           title: z.string().max(24),
           href: z.string().url(),
         }),
-      )
-      .nullable()
-      .optional(),
+      ),
   })
 
 export type OrganizationConfig = z.infer<typeof organizationConfigSchema>;
